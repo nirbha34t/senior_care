@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile - SeniorCare</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 90%;
+      max-width: 1000px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .left-section {
+      flex: 1;
+      background: #0288d1;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .left-section img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid white;
+      margin-bottom: 20px;
+    }
+
+    .left-section h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .right-section {
+      flex: 2;
+      padding: 40px;
+      background-color: #f5fafd;
+    }
+
+    .right-section h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #0277bd;
+    }
+
+    .info {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .info strong {
+      color: #01579b;
+    }
+
+    .edit-btn {
+      margin-top: 30px;
+      padding: 12px 28px;
+      background-color: #0288d1;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .edit-btn:hover {
+      background-color: #01579b;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-section, .right-section {
+        width: 100%;
+        text-align: center;
+      }
+
+      .right-section {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left-section">
+      <img src="https://via.placeholder.com/180" alt="User Photo" />
+      <h2>Nirbhay Gill</h2>
+      <p>Senior User</p>
+    </div>
+
+    <div class="right-section">
+      <h3>Profile Information</h3>
+      <div class="info"><strong>Age:</strong> 65</div>
+      <div class="info"><strong>Gender:</strong> Male</div>
+      <div class="info"><strong>Height:</strong> 170 cm</div>
+      <div class="info"><strong>Weight:</strong> 70 kg</div>
+      <div class="info"><strong>Phone Number:</strong> +91 9876543210</div>
+      <div class="info"><strong>Email:</strong> nirbhay@example.com</div>
+      <button class="edit-btn">Edit Profile</button>
+    </div>
+  </div>
+
+</body>
+</html>

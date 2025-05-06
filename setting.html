@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings - SeniorCare</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .settings-container {
+      width: 90%;
+      max-width: 800px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      color: #0277bd;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .setting-option {
+      width: 100%;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      background-color: #e0f7fa;
+      color: #01579b;
+      font-size: 20px;
+      border: none;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .setting-option:hover {
+      background-color: #b3e5fc;
+    }
+
+    .setting-option span {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .logout {
+      background-color: #ffebee;
+      color: #c62828;
+    }
+
+    .logout:hover {
+      background-color: #ffcdd2;
+    }
+
+    @media screen and (max-width: 600px) {
+      .setting-option {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="settings-container">
+    <h2>⚙️ Settings</h2>
+
+    <div class="setting-option">
+      <span>➕</span> Add New Account
+    </div>
+
+    <div class="setting-option">
+      <span>❓</span> Need Help
+    </div>
+
+    <div class="setting-option">
+      <span>💬</span> WhatsApp Chat
+    </div>
+
+    <div class="setting-option logout">
+      <span>🚪</span> Logout
+    </div>
+  </div>
+
+</body>
+</html>

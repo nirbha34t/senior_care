@@ -1,0 +1,97 @@
+<!-- monitor.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monitor Health - SeniorCare</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #01579b;
+      margin-bottom: 40px;
+    }
+
+    .monitor-container {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .monitor-card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      text-align: center;
+      width: 200px;
+      transition: transform 0.3s, background-color 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .monitor-card:hover {
+      transform: translateY(-5px);
+      background-color: #e0f7fa;
+    }
+
+    .emoji {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    .monitor-card p {
+      font-size: 16px;
+      color: #0277bd;
+    }
+  </style>
+</head>
+<body>
+  <h1>🩺 Monitor Your Health</h1>
+  <div class="monitor-container">
+
+    <a href="heartrate.html" class="monitor-card">
+      <div class="emoji">❤️</div>
+      <p>Heart Rate</p>
+    </a>
+
+    <a href="bp.html" class="monitor-card">
+      <div class="emoji">🩸</div>
+      <p>Blood Pressure</p>
+    </a>
+
+    <a href="steps.html" class="monitor-card">
+      <div class="emoji">👣</div>
+      <p>Step Counter</p>
+    </a>
+
+    <a href="cholesterol.html" class="monitor-card">
+      <div class="emoji">🧬</div>
+      <p>Cholesterol</p>
+    </a>
+
+    <a href="sugar.html" class="monitor-card">
+      <div class="emoji">🍬</div>
+      <p>Sugar Level</p>
+    </a>
+
+    <a href="hemoglobin.html" class="monitor-card">
+      <div class="emoji">🩻</div>
+      <p>Hemoglobin</p>
+    </a>
+
+  </div>
+</body>
+</html>

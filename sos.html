@@ -1,0 +1,90 @@
+<!-- sos.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOS Alert - SeniorCare</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #01579b;
+      margin-bottom: 30px;
+    }
+
+    .sos-box {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 350px;
+      text-align: center;
+    }
+
+    .sos-box p {
+      font-size: 18px;
+      color: #0277bd;
+      margin-bottom: 20px;
+    }
+
+    .emergency-numbers {
+      margin-top: 20px;
+    }
+
+    .emergency-numbers h3 {
+      color: #01579b;
+    }
+
+    .emergency-numbers p {
+      color: #0277bd;
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    .sos-btn {
+      background-color: #0288d1;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .sos-btn:hover {
+      background-color: #0277bd;
+    }
+  </style>
+  <script>
+    function sendAlert() {
+      alert("🚨 SOS message sent to ambulance and registered relatives.");
+      // Simulated logic - In a real app, you'd trigger SMS/call API or backend alert service.
+    }
+  </script>
+</head>
+<body>
+  <h1>🚨 SOS Emergency Alert</h1>
+  <div class="sos-box">
+    <p>If a medical emergency is detected, an automatic alert will be sent to the nearest ambulance service and your relatives.</p>
+    <button class="sos-btn" onclick="sendAlert()">Send SOS Now</button>
+
+    <div class="emergency-numbers">
+      <h3>Emergency Contacts</h3>
+      <p>🚑 Ambulance: 102</p>
+      <p>👴 Senior Citizen Helpline: 14567</p>
+    </div>
+  </div>
+</body>
+</html>

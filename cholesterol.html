@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cholesterol</title>
+  <style>
+    body {
+      background-color: #bbdefb;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .wrapper {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 700px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>🧈 Cholesterol Check</h1>
+    <p id="cholAdvice">Loading your cholesterol advice...</p>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("name") || "User";
+    const conditions = JSON.parse(localStorage.getItem("conditions")) || [];
+    let advice = "Your cholesterol is at a normal level. Keep maintaining a balanced diet. 🍏";
+
+    if (conditions.includes("Cholesterol")) {
+      advice = `Hi ${name}, you have high cholesterol. 😟 Here's what you should do:
+      <ul>
+        <li>Eat more fruits, vegetables, and whole grains. 🥗</li>
+        <li>Limit saturated fats and trans fats. 🚫</li>
+        <li>Incorporate more physical activity into your routine. 🏋️‍♀️</li>
+        <li>Consult your doctor about taking medications if prescribed. 💊</li>
+      </ul>`;
+    }
+
+    document.getElementById("cholAdvice").innerHTML = advice;
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Step Counter</title>
+  <style>
+    body {
+      background-color: #e1f5fe;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 700px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>👟 Step Counter</h1>
+    <p id="stepAdvice">Loading your step advice...</p>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("name") || "User";
+    const weight = localStorage.getItem("weight");
+    const stepGoal = weight > 80 ? 8000 : 10000;  // Example goal based on weight
+    
+    let advice = `Hi ${name}, your recommended daily step goal is ${stepGoal} steps. 🏃‍♂️`;
+    advice += "<br>Here are some tips to achieve your goal:";
+    advice += "<ul>";
+    advice += "<li>Take short walks throughout the day.</li>";
+    advice += "<li>Try walking after meals to boost digestion. 🍽️</li>";
+    advice += "<li>Use a step counter to track your progress. 📱</li>";
+    advice += "<li>Set reminders to move every hour. ⏰</li>";
+    advice += "</ul>";
+    
+    document.getElementById("stepAdvice").innerHTML = advice;
+  </script>
+</body>
+</html>

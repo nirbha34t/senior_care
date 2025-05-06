@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SeniorCare - Yoga & Exercise</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #b2ebf2);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #00796b;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .recommendation {
+      background-color: #e0f2f1;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .recommendation h3 {
+      margin-bottom: 10px;
+      color: #004d40;
+    }
+
+    .recommendation ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .recommendation ul li {
+      padding: 8px 0;
+      font-size: 18px;
+    }
+
+    .emoji {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🧘 Personalized Yoga & Exercise Recommendations</h1>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    // Sample logic based on stored localStorage data
+    const storedData = JSON.parse(localStorage.getItem("userData"));
+
+    function getRecommendations(data) {
+      if (!data) {
+        return `<p style="color:red;">No user data found. Please fill in your details on the index page.</p>`;
+      }
+
+      const recommendations = [];
+
+      if (data.conditions.includes("High BP")) {
+        recommendations.push(`
+          <div class="recommendation">
+            <h3>For High Blood Pressure 🩺</h3>
+            <ul>
+              <li>🧘‍♂️ Sukhasana (Easy Pose)</li>
+              <li>🧘‍♀️ Bhramari Pranayama (Bee Breathing)</li>
+              <li>🚶‍♂️ Light Walking 20 min</li>
+            </ul>
+          </div>
+        `);
+      }
+
+      if (data.conditions.includes("Low BP")) {
+        recommendations.push(`
+          <div class="recommendation">
+            <h3>For Low Blood Pressure 🩸</h3>
+            <ul>
+              <li>🧘‍♂️ Vajrasana (Thunderbolt Pose)</li>
+              <li>💪 Light Stretching & Squats</li>
+              <li>🧘‍♀️ Deep Breathing Exercises</li>
+            </ul>
+          </div>
+        `);
+      }
+
+      if (data.conditions.includes("Diabetes")) {
+        recommendations.push(`
+          <div class="recommendation">
+            <h3>For Diabetes 🍬</h3>
+            <ul>
+              <li>🧘‍♀️ Dhanurasana (Bow Pose)</li>
+              <li>🧘‍♂️ Ardha Matsyendrasana (Twist Pose)</li>
+              <li>🚶‍♀️ Brisk Walking 30 mins</li>
+            </ul>
+          </div>
+        `);
+      }
+
+      if (data.conditions.includes("Cholesterol")) {
+        recommendations.push(`
+          <div class="recommendation">
+            <h3>For High Cholesterol 🥗</h3>
+            <ul>
+              <li>🧘‍♂️ Surya Namaskar (Sun Salutation)</li>
+              <li>🚴‍♂️ Cycling or Stationary Bike</li>
+              <li>🧘‍♀️ Anulom Vilom (Breathing)</li>
+            </ul>
+          </div>
+        `);
+      }
+
+      if (data.conditions.includes("Stress") || data.conditions.includes("Depression")) {
+        recommendations.push(`
+          <div class="recommendation">
+            <h3>For Stress / Depression 😟</h3>
+            <ul>
+              <li>🧘‍♀️ Shavasana (Corpse Pose)</li>
+              <li>🧘‍♂️ Meditation 10-15 min</li>
+              <li>🎶 Music + Deep Breathing</li>
+            </ul>
+          </div>
+        `);
+      }
+
+      if (data.conditions.includes("None") || recommendations.length === 0) {
+        recommendations.push(`
+          <div class="recommendation">
+            <h3>General Health & Fitness 🌟</h3>
+            <ul>
+              <li>🧘‍♀️ Tadasana (Mountain Pose)</li>
+              <li>🧘‍♂️ Cat-Cow Stretch</li>
+              <li>🚶‍♂️ Morning Walk & Light Jog</li>
+            </ul>
+          </div>
+        `);
+      }
+
+      return recommendations.join("");
+    }
+
+    document.getElementById("output").innerHTML = getRecommendations(storedData);
+  </script>
+
+</body>
+</html>

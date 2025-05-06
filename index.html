@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SeniorCare - User Info</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #e1f5fe, #b3e5fc);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 30px 40px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      text-align: center;
+      color: #0277bd;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      color: #01579b;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .checkbox-group label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .checkbox-group input {
+      margin-right: 8px;
+    }
+
+    button {
+      background-color: #0288d1;
+      color: white;
+      font-size: 18px;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #01579b;
+    }
+
+    .note {
+      text-align: center;
+      color: #777;
+      margin-top: 15px;
+    }
+
+    .other-problem {
+      display: none;
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>📝 Enter Your Details</h1>
+    <form id="userForm">
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" required />
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select id="gender" required>
+          <option value="">Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" required />
+      </div>
+
+      <div class="form-group">
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" required />
+      </div>
+
+      <div class="form-group">
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" required />
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label>Do you have any of these medical conditions?</label>
+        <label><input type="checkbox" value="High BP" /> High Blood Pressure</label>
+        <label><input type="checkbox" value="Low BP" /> Low Blood Pressure</label>
+        <label><input type="checkbox" value="Diabetes" /> Diabetes (Sugar)</label>
+        <label><input type="checkbox" value="Cholesterol" /> High Cholesterol</label>
+        <label><input type="checkbox" value="Stress" /> Stress</label>
+        <label><input type="checkbox" value="Depression" /> Depression</label>
+        <label><input type="checkbox" value="None" /> None</label>
+        <label><input type="checkbox" id="otherCheckbox" value="Other" /> Other</label>
+        <input type="text" id="otherText" class="other-problem" placeholder="Please specify other condition" />
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="note">Your information helps us personalize your health experience.</div>
+  </div>
+
+  <script>
+    const otherCheckbox = document.getElementById("otherCheckbox");
+    const otherText = document.getElementById("otherText");
+
+    otherCheckbox.addEventListener("change", () => {
+      otherText.style.display = otherCheckbox.checked ? "block" : "none";
+    });
+
+    document.getElementById("userForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const gender = document.getElementById("gender").value;
+      const phone = document.getElementById("phone").value;
+      const height = document.getElementById("height").value;
+      const weight = document.getElementById("weight").value;
+
+      const medicalConditions = [];
+      document.querySelectorAll('.checkbox-group input[type="checkbox"]').forEach(cb => {
+        if (cb.checked) {
+          medicalConditions.push(cb.value);
+        }
+      });
+
+      if (otherCheckbox.checked && otherText.value.trim() !== "") {
+        medicalConditions.push(otherText.value.trim());
+      }
+
+      // Save to localStorage
+      localStorage.setItem("name", name);
+      localStorage.setItem("age", age);
+      localStorage.setItem("gender", gender);
+      localStorage.setItem("phone", phone);
+      localStorage.setItem("height", height);
+      localStorage.setItem("weight", weight);
+      localStorage.setItem("medical", JSON.stringify(medicalConditions));
+
+      // Redirect to home page
+      window.location.href = "home.html";
+    });
+  </script>
+</body>
+</html>

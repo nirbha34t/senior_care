@@ -1,0 +1,76 @@
+<!-- history.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activity History - SeniorCare</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #01579b;
+      margin-bottom: 40px;
+    }
+
+    .history-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .history-card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+      transition: transform 0.3s;
+    }
+
+    .history-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .history-card p {
+      font-size: 16px;
+      color: #0277bd;
+      margin: 10px 0;
+    }
+
+    .history-card .date {
+      font-size: 14px;
+      color: #0288d1;
+    }
+  </style>
+</head>
+<body>
+  <h1>📜 Activity History</h1>
+  <div class="history-container">
+    <div class="history-card">
+      <p><strong>Exercise Completed:</strong> 30 minutes of Yoga</p>
+      <p class="date">Date: 2025-04-30 | Time: 08:00 AM</p>
+    </div>
+    <div class="history-card">
+      <p><strong>Exercise Completed:</strong> 20 minutes of Walking</p>
+      <p class="date">Date: 2025-04-29 | Time: 06:30 PM</p>
+    </div>
+    <div class="history-card">
+      <p><strong>Exercise Completed:</strong> 15 minutes of Stretching</p>
+      <p class="date">Date: 2025-04-28 | Time: 07:00 AM</p>
+    </div>
+  </div>
+</body>
+</html>

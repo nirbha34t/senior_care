@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sugar Level</title>
+  <style>
+    body {
+      background-color: #e3f2fd;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .box {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 700px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>🍬 Sugar Level</h1>
+    <p id="sugarAdvice">Loading your sugar level advice...</p>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("name") || "User";
+    const conditions = JSON.parse(localStorage.getItem("conditions")) || [];
+
+    let advice = "Your sugar level is within the normal range. Stay healthy! 🍏";
+
+    if (conditions.includes("Diabetes")) {
+      advice = `Hi ${name}, you have diabetes. 🍬 Here's what you should do:
+      <ul>
+        <li>Monitor your blood sugar levels regularly. 🩸</li>
+        <li>Follow a balanced diet with low glycemic index foods. 🥦</li>
+        <li>Exercise regularly to manage your sugar levels. 🏃‍♀️</li>
+        <li>Consult your doctor for appropriate medications. 💊</li>
+      </ul>`;
+    }
+
+    document.getElementById("sugarAdvice").innerHTML = advice;
+  </script>
+</body>
+</html>

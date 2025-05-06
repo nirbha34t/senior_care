@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Pressure</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #b3e5fc;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .content {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 700px;
+      width: 90%;
+    }
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>🩸 Blood Pressure Info</h1>
+    <p id="bpAdvice">Loading your blood pressure info...</p>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("name") || "User";
+    const conditions = JSON.parse(localStorage.getItem("conditions")) || [];
+    
+    let advice = "Your blood pressure is normal. Keep maintaining a healthy lifestyle. 💪";
+
+    if (conditions.includes("High BP")) {
+      advice = `Hi ${name}, you have high blood pressure. 😓 Here's what you should do:
+      <ul>
+        <li>Check your blood pressure regularly (at least once a week). 🩺</li>
+        <li>Reduce salt intake 🧂 and avoid processed foods.</li>
+        <li>Exercise regularly and manage stress 🧘.</li>
+        <li>Consult with your doctor for medication adjustments if needed. 💊</li>
+      </ul>`;
+    }
+
+    if (conditions.includes("Low BP")) {
+      advice = `Hi ${name}, you have low blood pressure. 😟 Here's what you should do:
+      <ul>
+        <li>Check your blood pressure regularly (at least twice a week). 🩺</li>
+        <li>Increase your salt intake 🧂 after consulting a doctor.</li>
+        <li>Eat small, frequent meals to avoid dizziness. 🍽️</li>
+        <li>Drink plenty of fluids to stay hydrated. 💧</li>
+      </ul>`;
+    }
+
+    document.getElementById("bpAdvice").innerHTML = advice;
+  </script>
+</body>
+</html>

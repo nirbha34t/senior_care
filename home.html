@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SeniorCare - Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #0288d1;
+      color: white;
+    }
+
+    .menu-icon {
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .app-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .menu-dropdown {
+      position: absolute;
+      right: 20px;
+      top: 60px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      display: none;
+      flex-direction: column;
+      z-index: 999;
+    }
+
+    .menu-dropdown a {
+      padding: 12px 18px;
+      text-decoration: none;
+      color: #0288d1;
+      border-bottom: 1px solid #ddd;
+      font-weight: 500;
+    }
+
+    .menu-dropdown a:last-child {
+      border-bottom: none;
+    }
+
+    .menu-dropdown a:hover {
+      background-color: #f0f8ff;
+    }
+
+    .main-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      padding: 50px 30px;
+      justify-items: center;
+    }
+
+    .card {
+      background: linear-gradient(to bottom right, #ffffff, #e0f7fa);
+      width: 320px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 25px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      font-size: 22px;
+      color: #0277bd;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .card span {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .footer {
+      background-color: #f0fbfc;
+      padding: 30px 20px;
+      margin-top: auto;
+      color: #0277bd;
+    }
+
+    .footer-section {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: #b2ebf2;
+      margin: 20px auto;
+      width: 80%;
+    }
+
+    .feedback-link {
+      margin-top: 10px;
+      display: inline-block;
+      background-color: #0288d1;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .feedback-link:hover {
+      background-color: #01579b;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="app-title">SeniorCare</div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </div>
+
+  <div class="menu-dropdown" id="menuDropdown">
+    <a href="profile.html">👤 My Profile</a>
+    <a href="history.html">📊 My Activity</a>
+    <a href="setting.html">⚙️ Settings</a>
+    <a href="sos.html">🚨 Emergency SOS</a>
+  </div>
+
+  <div class="main-container">
+    <a href="monitor.html" class="card">
+      <span>🩺</span>
+      Measure Health
+    </a>
+    <a href="yoga.html" class="card">
+      <span>🧘</span>
+      Exercise & Yoga
+    </a>
+    <a href="history.html" class="card">
+      <span>📈</span>
+      Activity History
+    </a>
+    <a href="sos.html" class="card">
+      <span>🚑</span>
+      SOS
+    </a>
+  </div>
+
+  <div class="footer">
+    <div class="footer-section">
+      <h3>👥 Community Support</h3>
+      <p><strong>4,238+</strong> senior citizens are actively using and supporting SeniorCare!</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="footer-section">
+      <h3>We Value Your Feedback</h3>
+      <p>Your thoughts help us improve the experience. Let us know what you think!</p>
+      <a class="feedback-link" href="https://example.com/feedback" target="_blank">Give Feedback</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menuDropdown');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    window.onclick = function(event) {
+      const menu = document.getElementById('menuDropdown');
+      if (!event.target.matches('.menu-icon')) {
+        menu.style.display = 'none';
+      }
+    };
+  </script>
+</body>
+</html>
